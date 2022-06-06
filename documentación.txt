@@ -1,41 +1,45 @@
-case "+": info = "Signo de suma"; break;
-                case "-": info = "Signo de resta"; break;
-                case "*": info = "Signo de multiplicar"; break;
-                case "/": info = "Signo de division"; break;
-                case "=": info = "Signo de igual"; break;
-                case "<": info = "Signo de menor que "; break;
-                case ">": info = "Signo de mayor que"; break;
-                case "{": info = "Llave de inicio"; break;
-                case "}": info = "Llave fin"; break;
-                case "(": info = "Parentesis de inicio"; break;
-                case ")": info = "Parentesis de fin"; break;
-                case "$": info = "Signo de igual comparativo"; break;
-                case "YY": info = "AND"; break;
-                case "OO": info = "OR"; break;
-                case "XX": info = "NOT"; break;
-                case "inicio": info = "P/R de inicio"; break;
-                case "fin": info = "P/R de fin"; break;
-                case "ent": info = "P/R de entero"; break;
-                case "flot": info = "P/R de flotante"; break;
-                case "dobl": info = "P/R de doble"; break;
-                case "cad": info = "P/R de cadena"; break;
-                case "si": info = "P/R de condicional si"; break;
-                case "sino": info = "P/R de condicional sino"; break;
-                case "para": info = "P/R de ciclo para"; break;
-                case "hacer": info = "P/R hacer"; break;
-                case "mientras": info = "P/R de ciclo mientras"; break;
-                case "ver": info = "P/R de impresion"; break;
-                case "leer": info = "P/R de leer"; break;
-                case "escribir": info = "P/R de escribir"; break;
-                case ",": info = ","; break;
-                case ";": info = "Fin de la línea"; break;
-                case ".": info = "."; break;
-                case ":": info = ":"; break;
-                case "'": info = "comilla"; break;
+El lenguaje utilizado para programar el analizador léxico fue C#.
 
-P/R hace referencia a una palabra reservada.
+El lenguaje al que responde el analizador léxico es uno propio.
 
-Código de ejemplo:
+Diccionario:
+
+"+" = "Signo de suma"
+"-" = "Signo de resta"
+"*" = "Signo de multiplicar"
+"/" = "Signo de division"
+"=" = "Signo de igual"
+"<" = "Signo de menor que "
+">" = "Signo de mayor que"
+"{" = "Llave de inicio"
+"}" = "Llave fin"
+"(" = "Parentesis de inicio"
+")" = "Parentesis de fin"
+"$" = "Signo de igual comparativo"
+"YY" = "AND"
+"OO" = "OR"
+"XX" = "NOT"
+"inicio" = "Palabra reservada de inicio"
+"fin" = "Palabra reservada de fin"
+"ent" = "Palabra reservada de entero"
+"flot" = "Palabra reservada de flotante"
+"dobl" = "Palabra reservada de doble"
+"cad" = "Palabra reservada de cadena"
+"si" = "Palabra reservada de condicional si"
+"sino" = "Palabra reservada de condicional sino"
+"para" = "Palabra reservada de ciclo para"
+"hacer" = "Palabra reservada hacer"
+"mientras" = "Palabra reservada de ciclo mientras"
+"ver" = "Palabra reservada de impresion"
+"leer" = "Palabra reservada de leer"
+"escribir" = "Palabra reservada de escribir"
+"," = ","
+";" = "Fin de la línea"
+"." = "."
+":" = ":"
+"'" = "Comilla"
+
+Ejemplo de código escrito en el lenguaje:
 
 ente valor = 8 ;
 para ( x = 0 ; x <= 5 ; x++ ) {
