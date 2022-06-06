@@ -1,0 +1,136 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace analizador_lexico
+{
+    public partial class AnalizadorLexico : Form
+    {
+        public AnalizadorLexico()
+        {
+            InitializeComponent();
+        }
+
+        public void Analizador_Lexico()
+        {
+            if (!String.IsNullOrWhiteSpace(txtEditor.Text))
+            {
+                dgvTokens.Rows.Clear();
+                dgvTokens.Rows.Add();
+                string codigo_fuente = txtEditor.Text;
+                char[] salto = { '\n' };
+                char[] limitador = { ' ' };
+                string[] arreglo = codigo_fuente.Split(salto);
+
+                for (int y = 0; y < arreglo.Length; y++)
+                {
+                    string[] palabra = arreglo[y].Split(limitador);
+
+                    for (int z = 0; z < palabra.Length; z++)
+                    {
+                        palabra[z] = palabra[z].Replace("\n", "");
+
+                        if (palabra[z] != "")
+                        {
+                            DataGridViewRow row = (DataGridViewRow)dgvTokens.Rows[0].Clone();
+                            row.Cells[0].Value = Analizar(palabra[z]);
+                            row.Cells[1].Value = palabra[z];
+                            dgvTokens.Rows.Add(row);
+                        }
+                    }
+                }
+
+                dgvTokens.Rows.Remove(dgvTokens.Rows[0]);
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar texto en el editor.");
+            }
+        }
+
+        public string Analizar(string valor)
+        {
+            string info = "";
+
+            switch (valor)
+            {
+                case "+": info = "Signo de suma"; break;
+                case "-": info = "Signo de resta"; break;
+                case "*": info = "Signo de multiplicar"; break;
+                case "/": info = "Signo de division"; break;
+                case "=": info = "Signo de igual"; break;
+                case "<": info = "Signo de menor que "; break;
+                case ">": info = "Signo de mayor que"; break;
+                case "{": info = "Llave de inicio"; break;
+                case "}": info = "Llave fin"; break;
+                case "(": info = "Parentesis de inicio"; break;
+                case ")": info = "Parentesis de fin"; break;
+                case "$": info = "Signo de igual comparativo"; break;
+                case "YY": info = "AND"; break;
+                case "OO": info = "OR"; break;
+                case "XX": info = "NOT"; break;
+                case "inicio": info = "P/R de inicio"; break;
+                case "fin": info = "P/R de fin"; break;
+                case "ent": info = "P/R de entero"; break;
+                case "flot": info = "P/R de flotante"; break;
+                case "dobl": info = "P/R de doble"; break;
+                case "cad": info = "P/R de cadena"; break;
+                case "si": info = "P/R de condicional si"; break;
+                case "sino": info = "P/R de condicional sino"; break;
+                case "para": info = "P/R de ciclo para"; break;
+                case "hacer": info = "P/R hacer"; break;
+                case "mientras": info = "P/R de ciclo mientras"; break;
+                case "ver": info = "P/R de impresion"; break;
+                case "leer": info = "P/R de leer"; break;
+                case "escribir": info = "P/R de escribir"; break;
+                case ",": info = ","; break;
+                case ";": info = "Fin de la línea"; break;
+                case ".": info = "."; break;
+                case ":": info = ":"; break;
+                case "'": info = "comilla"; break;
+
+                default:
+                    float elemento; int validar = 0;
+
+                    if (float.TryParse(valor, out elemento))
+                    {
+                        info = "Número";
+                        validar = 1;
+                    }
+
+                    if (valor.StartsWith("'") && valor.EndsWith("'"))
+                    {
+                        info = "Texto";
+                        validar = 1;
+                    }
+
+                    if (validar == 0)
+                    {
+                        info = "Identificador";
+                    }
+
+                    break;
+            }
+
+            return info;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvTokens.Rows.Clear();
+            txtEditor.Text = "";
+            txtEditor.Focus();
+        }
+
+        private void btnAnalizar_Click(object sender, EventArgs e)
+        {
+            Analizador_Lexico();
+        }
+    }
+}

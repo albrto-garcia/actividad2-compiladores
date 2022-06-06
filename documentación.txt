@@ -1,0 +1,43 @@
+case "+": info = "Signo de suma"; break;
+                case "-": info = "Signo de resta"; break;
+                case "*": info = "Signo de multiplicar"; break;
+                case "/": info = "Signo de division"; break;
+                case "=": info = "Signo de igual"; break;
+                case "<": info = "Signo de menor que "; break;
+                case ">": info = "Signo de mayor que"; break;
+                case "{": info = "Llave de inicio"; break;
+                case "}": info = "Llave fin"; break;
+                case "(": info = "Parentesis de inicio"; break;
+                case ")": info = "Parentesis de fin"; break;
+                case "$": info = "Signo de igual comparativo"; break;
+                case "YY": info = "AND"; break;
+                case "OO": info = "OR"; break;
+                case "XX": info = "NOT"; break;
+                case "inicio": info = "P/R de inicio"; break;
+                case "fin": info = "P/R de fin"; break;
+                case "ent": info = "P/R de entero"; break;
+                case "flot": info = "P/R de flotante"; break;
+                case "dobl": info = "P/R de doble"; break;
+                case "cad": info = "P/R de cadena"; break;
+                case "si": info = "P/R de condicional si"; break;
+                case "sino": info = "P/R de condicional sino"; break;
+                case "para": info = "P/R de ciclo para"; break;
+                case "hacer": info = "P/R hacer"; break;
+                case "mientras": info = "P/R de ciclo mientras"; break;
+                case "ver": info = "P/R de impresion"; break;
+                case "leer": info = "P/R de leer"; break;
+                case "escribir": info = "P/R de escribir"; break;
+                case ",": info = ","; break;
+                case ";": info = "Fin de la línea"; break;
+                case ".": info = "."; break;
+                case ":": info = ":"; break;
+                case "'": info = "comilla"; break;
+
+P/R hace referencia a una palabra reservada.
+
+Código de ejemplo:
+
+ente valor = 8 ;
+para ( x = 0 ; x <= 5 ; x++ ) {
+   valor = 5 * x ;
+}
